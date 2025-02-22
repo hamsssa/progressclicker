@@ -2,6 +2,16 @@ const button = document.getElementById('button');
 const progress = document.getElementById('progress');
 const lightmode = document.getElementById('lightmode');
 const container = document.getElementsByClassName('container');
+const coins = document.getElementById('coins')
+const confeti = new JSConfetti();
+const SpeedUpButton = document.getElementById('speed');
+const CheaterButton = document.getElementById('cheater')
+const Debug = document.getElementById('debug');
+const itemButton = document.getElementsByClassName('itembutton');
+const SecretButton = document.getElementById('secret')
+let coinsCount = 0;
+
+
 
 let hour = 0;
 let minute = 0;
@@ -9,13 +19,46 @@ let second = 0;
 let count = 0;
 let timer = false;  
 let timeoutId = null;
-
-
 let currentTimeInSeconds = 0;  
 let bestTimeInSeconds = Infinity;
+let valor = 5;
+//Debug.addEventListener('click', function()
+//{
+  //   coinsCount = parseInt(prompt('Cuantas monedas quieres?'))
+    // document.getElementById('coins-count').textContent = coinsCount;
+//});
 
-const confeti = new JSConfetti();
+SecretButton.addEventListener('click', function()
+{
+    alert("Ill add something else here.")
+});
+SpeedUpButton.addEventListener('click', function()
+{
+    if(coinsCount < 1)
+    {
+        alert("Saldo insuficiente")
+    }
+    else
+    {
+        valor = 10;
+        coinsCount--;
+        document.getElementById('coins-count').textContent = coinsCount;
+    }
+});
 
+CheaterButton.addEventListener('click', function()
+{
+    if(coinsCount < 100)
+        {
+            alert("Saldo insuficiente")
+        }
+        else
+        {
+            valor = 50;
+            coinsCount-=100;
+            document.getElementById('coins-count').textContent = coinsCount;
+        }
+});
 lightmode.addEventListener('click', function()
 {
     DarkMode();
@@ -37,7 +80,7 @@ button.addEventListener('click', function()
         stopWatch(); 
     }
     
-    progress.value += 5;
+    progress.value += valor;
     if(progress.value === 200) 
     {
 
@@ -46,6 +89,8 @@ button.addEventListener('click', function()
         CompareTime();  
         Reset()
         confeti.addConfetti();
+        coinsCount++;
+        document.getElementById('coins-count').textContent = coinsCount;
     }
 });
 
@@ -135,15 +180,22 @@ function DarkMode()
 
     if(isDefault)
         {
+            const shopButtons = document.querySelectorAll('.itembutton');
+            shopButtons.forEach(btn => 
+            {
+                btn.style.backgroundColor = '#022c41';
+            });
 
             button.style.setProperty('background-color', '#022c41');
             document.body.style.background = "#121212";
-            
             document.querySelector('.container').style.backgroundColor = '#1e1e1e';
             document.querySelector('.container').style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.3)';
             
             document.querySelector('.title').style.color = '#e0e0e0';
-            
+            document.getElementById('coins-count').style.color = '#e0e0e0';
+            document.getElementById('shop').style.color = '#e0e0e0';
+
+
             const digits = document.querySelectorAll('.digit');
             digits.forEach(digit => 
             {
@@ -165,6 +217,11 @@ function DarkMode()
         }
         else
         {
+            const shopButtons = document.querySelectorAll('.itembutton');
+            shopButtons.forEach(btn => 
+            {
+                btn.style.backgroundColor = '#0ea5e9';
+            });
             button.style.setProperty('background-color', '#0ea5e9');
             document.body.style.background = '#f5f5f5';
             
@@ -172,7 +229,9 @@ function DarkMode()
             document.querySelector('.container').style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
             
             document.querySelector('.title').style.color = '#333';
-            
+            document.getElementById('coins-count').style.color = '#333';
+            document.getElementById('shop').style.color = '#333';
+
             const digits = document.querySelectorAll('.digit');
             digits.forEach(digit => 
             {

@@ -8,7 +8,20 @@
     <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
 </head>
 <body>
+    <!--<button id="debug">debug</button>-->
     <button id="lightmode"> <img src="icons/moon.png" width="30px" height="30px"></button>
+    <div class="shop">
+        <span id="coins">
+            <span id="coins-count">0</span>
+            <img src="icons/coin.png" width="20px" height="20px">
+        </span>
+        <details class="items">
+            <summary id="shop">Shop</summary>
+            <summary><button id="speed" class="itembutton">Speed Up 1 <img src="icons/coin.png"  width="20px" height="20px"></button></summary>
+            <summary><button id="cheater" class="itembutton">Cheater 100 <img src="icons/coin.png" width="20px" height="20px"></button></summary>
+            <summary><button id="secret" class="itembutton">Secret 500 <img src="icons/coin.png" width="20px" height="20px"></button></summary>
+        </details>
+    </div>
     <header>
         <h1 class="title">Progress</h1>
         <div class="container">
@@ -33,3 +46,4 @@
 </body>
 <script src="script.js"></script>
 </html>
+
