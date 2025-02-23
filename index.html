@@ -6,6 +6,8 @@
     <title>Progress</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-notify/dist/simple-notify.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify/dist/simple-notify.css" />
 </head>
 <body>
     <!--<button id="debug">debug</button>-->
@@ -14,10 +16,12 @@
         <span id="coins">
             <span id="coins-count">0</span>
             <img src="icons/coin.png" width="20px" height="20px">
+            <button id="buyButton">+</button>
         </span>
         <details class="items">
             <summary id="shop">Shop</summary>
             <summary><button id="speed" class="itembutton">Speed Up 1 <img src="icons/coin.png"  width="20px" height="20px"></button></summary>
+            <summary><button id="morecoins" class="itembutton">Coin Boost 20 <img src="icons/coin.png" width="20px" height="20px"></button></summary>
             <summary><button id="cheater" class="itembutton">Cheater 100 <img src="icons/coin.png" width="20px" height="20px"></button></summary>
             <summary><button id="secret" class="itembutton">Secret 500 <img src="icons/coin.png" width="20px" height="20px"></button></summary>
         </details>
