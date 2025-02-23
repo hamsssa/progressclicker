@@ -29,6 +29,8 @@ let coinMultiplier = 1;
 let valor = 5;
 let SpeedUpItem = 10;
 let SpeedUpValue = 1;
+let ClickerCount = 0;
+let ClicksPerSecond = 0;
 //Debug.addEventListener('click', function()
 //{
   //   coinsCount = parseInt(prompt('Cuantas monedas quieres?'))
@@ -80,7 +82,15 @@ function pushNotifySuccess()
   
 SecretButton.addEventListener('click', function()
 {
-    alert("Ill add something else here.")
+    if(coinsCount < 500)
+    {
+        pushNotifyError()
+        return;
+    }
+    else
+    {
+        alert("RYOLD PUTITA MARIKA")
+    }
 });
 SpeedUpButton.addEventListener('click', function()
 {
@@ -167,7 +177,7 @@ button.addEventListener('click', function()
         coinsCount += 1 * coinMultiplier
         document.getElementById('coins-count').textContent = coinsCount;
     }
-    ClickereCount++;
+    ClickerCount++;
 });
 
 function stopWatch() 
@@ -216,9 +226,17 @@ function CompareTime()
     if(currentTimeInSeconds < bestTimeInSeconds)
     {
         bestTimeInSeconds = currentTimeInSeconds;
-        
+
+        ClicksPerSecond = bestTimeInSeconds / ClickerCount
+        const roundedCPS = Math.round(ClicksPerSecond * 1000) / 1000;
+
         let bestTimerString = 
-            `${hour < 10 ? "0" + hour : hour}:${minute < 10 ? "0" + minute : minute}:${second < 10 ? "0" + second : second}:${count < 10 ? "0" + count : count}`;
+            `${hour < 10 ? "0" + hour : hour}:${minute < 10 ? "0" + minute : minute}:${second < 10 ? "0" + second : second}:${count < 10 ? "0" + count : count} <br> <details class="infoTable">
+                        <summary> </summary>
+                        <summary class="info">Times clicked: ${ClickerCount}</summary>
+                        <summary class="info">Average speed click: ${roundedCPS}</summary>
+                        <summary class="info">Inter-click intervals: ${0}</summary>
+                    </details>`;
         
         document.getElementById('BestTime').innerHTML = bestTimerString;
     }
@@ -234,6 +252,7 @@ function Reset()
     timer = false;  
     timeoutId = null;
     currentTimeInSeconds = 0;
+    ClickerCount = 0;
 }
 let isDefault = true;
 let isDefaultIcon = true;

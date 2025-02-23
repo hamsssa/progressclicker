@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-notify/dist/simple-notify.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify/dist/simple-notify.css" />
+    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
 </head>
 <body>
     <!--<button id="debug">debug</button>-->
@@ -43,7 +44,14 @@
             <button id="button">Click me</button>
             <ul>
                 <img src="icons/crown2.png" alt="" id="icon" width="30px" height="30px">
-                <li id="BestTime" >Your best time will be here</li>
+                <li id="BestTime" >Your best time will be here
+                   <br> <details class="infoTable">
+                        <summary> </summary>
+                        <summary class="info">Times clicked: 0</summary>
+                        <summary class="info">Average speed click: 0</summary>
+                        <summary class="info">Inter-click intervals: 0</summary>
+                    </details>
+                </li>
             </ul>
         </section>
     </header>
