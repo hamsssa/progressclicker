@@ -89,7 +89,7 @@ SecretButton.addEventListener('click', function()
     }
     else
     {
-        alert("RYOLD PUTITA MARIKA")
+        alert("secret")
     }
 });
 SpeedUpButton.addEventListener('click', function()
